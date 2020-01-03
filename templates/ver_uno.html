@@ -1,0 +1,39 @@
+{% extends 'bases/base.html' %}
+
+{% block encabezado %} {{nombre}} {% endblock %}
+
+{% block content %}
+<div class=" row">
+<div class="card" style="width: 70%">
+  <img class="card-img-top" src="{{foto}}" style="width: 30%">
+  <div class="card-body">
+    <h5 class="card-title">Detalles de las caracteristicas.</h5>
+    <p class="card-text"></p>
+    <p><strong> Peso:</strong> {{peso}}</p>
+    <p><strong>Altura:</strong> {{altura}}</p>
+    <p><strong>Tipo:</strong> 
+    {% for tipo, value in tipos.items %}
+    <a href="/ver_tipo/{{value.id_tipo}}">{{value.tipo}}</a> 
+    {% endfor %}
+    </p>
+    <p><strong>Habilidades:</strong> 
+	    {% for habilidad, value in habilidades.items %}
+    {{value}},  
+    {% endfor %}
+    </p>
+
+    <p><strong>Movimientos:</strong> 
+	{% for movimiento, value in movimientos.items %}
+    {{value}},  
+    {% endfor %}
+     </p>
+    <a href="{% url 'ver_todos' %}" class="btn btn-primary">Ver todos</a>
+  </div>
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

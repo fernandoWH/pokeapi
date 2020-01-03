@@ -1,0 +1,22 @@
+{% extends 'bases/base.html' %}
+
+{% block encabezado %} TODOS LOS POKEMONS {% endblock %}
+
+{% block content %}
+{% if pokemons %}
+<div class=" row">
+{% for pokemon, value in pokemons.items  %}
+<div class="card">
+  <img class="card-img-top" src="{{ value.foto }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ value.nombre }}</h5>
+    <a href="../../ver_uno/{{value.nombre}}/{{value.id_pokemon}}" class="btn btn-primary">Ver pokemon</a>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+{% endif %}
+
+
+{% endblock %}
